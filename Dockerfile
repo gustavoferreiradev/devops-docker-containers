@@ -7,6 +7,7 @@ COPY .yarn ./.yarn
 
 COPY . .
 
+RUN yarn install --frozen-lockfile
 RUN yarn run build
 RUN yarn workspaces focus --production && yarn cache clean
 
