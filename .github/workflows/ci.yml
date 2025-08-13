@@ -24,9 +24,11 @@ jobs:
           corepack enable
           corepack prepare yarn@4.9.2 --activate
 
-      - name: Yarn version check
+      - name: Check yarn versions
         run: |
+          echo "Global yarn version"
           yarn --version
+          echo "Corepack yarn version"
           corepack yarn --version
 
       - name: Install dependencies
