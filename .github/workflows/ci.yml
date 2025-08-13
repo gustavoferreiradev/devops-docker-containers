@@ -52,4 +52,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: gustavofersilva/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }},gustavofersilva/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }}:latest
+          tags: gustavofersilva/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }},gustavofersilva/rocketseat-ci-api:latest
