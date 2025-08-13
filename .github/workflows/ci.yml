@@ -23,3 +23,7 @@ jobs:
         cache: 'yarn'
     - run: yarn
     - run: yarn run test
+
+    - name: Build docker image
+      run: docker build -t rocketseat-ci-api:latest .
+
