@@ -2,12 +2,12 @@ FROM node:20 AS build
 
 WORKDIR /usr/src/app
 
-COPY package.json yarn.lock
+COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 
 COPY . .
-
-RUN yarn install --frozen-lockfile
+RUN npm install -g corepack
+RUN yarn init -2
 RUN yarn run build
 RUN yarn workspaces focus --production && yarn cache clean
 
