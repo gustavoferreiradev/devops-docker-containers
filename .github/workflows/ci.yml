@@ -21,10 +21,8 @@ jobs:
       with:
         node-version: ${{ matrix.node }}
         cache: 'yarn'
-    - run: yarn --ci
-    - run: yarn run test --ci
-      env:
-         CI: true
+    - run: yarn
+    - run: yarn run test
 
     - name: Generate tag
       id: generate_tag
@@ -33,5 +31,5 @@ jobs:
         echo "sha=$SHA" >> $GITHUB_OUTPUT
 
     - name: Build docker image
-      run: docker build -t rocketseat-ci-api:$({ steps.generate_tag.outputs.sha }) .
+      run: docker build -t rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }} .
 
