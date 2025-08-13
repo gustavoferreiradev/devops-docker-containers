@@ -22,7 +22,7 @@ jobs:
         node-version: ${{ matrix.node }}
         cache: 'yarn'
     - run: yarn
-    - run: yarn run test:cov
+    - run: yarn run test --ci
 
     - name: Generate tag
       id: generate_tag
