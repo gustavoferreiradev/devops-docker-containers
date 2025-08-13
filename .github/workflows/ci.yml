@@ -46,10 +46,10 @@ jobs:
         uses: docker/login-action@v3
         with: 
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build docker image
-        run: docker build -t gustavofersilva/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }} .
-
-      - name: Push image
-        run: docker push gustavofersilva/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}  
+     
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: gustavofersilva/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }}, gustavofersilva/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }}:latest
