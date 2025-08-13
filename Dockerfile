@@ -7,7 +7,7 @@ COPY .yarn ./.yarn
 
 COPY . .
 RUN corepack enable && corepack prepare yarn@4.9.2 --activate
-RUN yarn install --immutable
+RUN yarn install
 RUN yarn workspace api build
 
 FROM node:20-alpine3.19
