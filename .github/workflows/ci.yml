@@ -47,7 +47,7 @@ jobs:
           echo "sha=$SHA" >> $GITHUB_OUTPUT
       
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credential@v4
+        uses: aws-actions/configure-aws-credentials@v4
         with:
            role-to-assume: 'arn:aws:iam::309292427452:role/ecr-role'
            aws-region: us-east-1
